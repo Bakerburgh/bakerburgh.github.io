@@ -6,15 +6,10 @@ import {
 import { CssBaseline, CssVarsProvider, styled } from '@mui/joy';
 import { Provider } from 'react-redux'
 import { store } from './store';
-import Header from './Header';
+import routes from './routes';
 
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
-]);
+const router = createBrowserRouter(routes);
 
 const VerticalLayout = styled('div')(({theme}) => ({
   display: 'flex',
@@ -27,7 +22,6 @@ function App() {
     <CssVarsProvider defaultMode='dark'>
       <CssBaseline />
         <VerticalLayout>
-          <Header />
           <RouterProvider router={router} />
         </VerticalLayout>
     </CssVarsProvider>
