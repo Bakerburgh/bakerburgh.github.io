@@ -38,7 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "cp -r build ../docs",
+    "postbuild": "rm -r ../docs && cp -r build ../docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
