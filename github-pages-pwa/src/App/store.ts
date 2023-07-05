@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import headerReducer from './headerSlice'
-import routerSlicer from './routesSlice'
+import routerSlice from './routesSlice'
+import dominoSlice from '../routes/DominoCounter/dominoSlice'
 
 export const store = configureStore({
   reducer: {
     header: headerReducer,
-    routes: routerSlicer,
+    routes: routerSlice,
+    dominoCounter: dominoSlice
   },
   devTools: true
 })

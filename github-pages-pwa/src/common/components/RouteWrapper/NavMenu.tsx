@@ -2,10 +2,14 @@ import { Button, Menu, MenuItem } from '@mui/joy';
 import React from 'react';
 import Apps from '@mui/icons-material/Apps';
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../../../App/store';
+import { useAppDispatch, useAppSelector } from '../../../App/store';
 import { NavRoute } from '../../../App/routesSlice';
+import { useColorScheme } from '@mui/joy/styles';
+import {headerSlice} from '../../../App/headerSlice'
 
 function NavMenu() {
+  const { mode, setMode } = useColorScheme();
+  const dispatch = useAppDispatch();
   var routes = useAppSelector(state => state.routes);
   var menuOptions = routes.navItems.filter(n => n.showInNavMenu);
 
@@ -16,6 +20,7 @@ function NavMenu() {
 
   const onMenuItemClick = (navItem: NavRoute) => () => {
     setOpen(false);
+    dispatch(headerSlice.actions.setHeaderText(navItem.label));
     navigate(navItem.path)
 
   };
@@ -43,6 +48,10 @@ function NavMenu() {
         aria-labelledby="selected-demo-button"
       >
         {menuOptions.map((o, index) => <MenuItem key={index} onClick={onMenuItemClick(o)}>{o.label}</MenuItem>)}
+        <MenuItem key={menuOptions.length} 
+          onClick={() => setMode(mode === 'dark' ? 'light' : 'dark')}>
+            {mode === 'dark' ? 'Turn light' : 'Turn dark'}
+        </MenuItem>
       </Menu>
   </div>
 }

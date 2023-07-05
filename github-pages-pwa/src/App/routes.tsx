@@ -1,6 +1,7 @@
 import React from 'react';
 import RouteWrapper from '../common/components/RouteWrapper/RouteWrapper';
 import { RouteObject } from 'react-router-dom';
+import DominoCounter from '../routes/DominoCounter/DominoCounter';
 
 let routes: RouteObject[] = [
   {
@@ -10,7 +11,7 @@ let routes: RouteObject[] = [
   },
   {
     path: "/dominoCounter",
-    element: <RouteWrapper><div>Domino Counter</div></RouteWrapper>
+    element: <RouteWrapper><DominoCounter/></RouteWrapper>
   },
   {
     path: "/*",

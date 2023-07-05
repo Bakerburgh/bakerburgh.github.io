@@ -8,6 +8,11 @@ export interface NavRoute {
 
 var defaultRoutes: NavRoute[] = [
   {
+    label: 'Home',
+    path: '/',
+    showInNavMenu: true
+  },
+  {
     label: 'Domino Counter',
     path: '/dominoCounter',
     showInNavMenu: true
