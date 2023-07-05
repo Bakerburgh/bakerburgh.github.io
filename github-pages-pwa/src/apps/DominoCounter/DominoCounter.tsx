@@ -3,7 +3,7 @@ import { Divider } from '@mui/joy';
 import { useAppSelector } from '../../App/store';
 import Input from './Input';
 import SelectedDominos from './SelectedDominos';
-import { FlexColumn, FlexColumnFullHeight, FlexRow } from '../../common/components/Layout';
+import { FlexColumnFullHeight, FlexRow } from '../../common/components/Layout';
 
 
 function DominoCounter() {

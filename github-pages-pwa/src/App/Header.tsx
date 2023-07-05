@@ -1,6 +1,5 @@
 import React from 'react';
 import { styled } from '@mui/joy';
-import { useAppSelector } from '../../../App/store';
 import NavMenu from './NavMenu';
 
 
@@ -23,12 +22,10 @@ const LeftSpacerDiv = styled('div')(() => ({
   width: '56px'
 }))
 
-function Header() {
-  var text = useAppSelector(state => state.header.text);
-
+function Header(props: {headerText: string}) {
   return <HeaderDiv>
     <LeftSpacerDiv/>
-    <VerticalCenterText>{text}</VerticalCenterText>
+    <VerticalCenterText>{props.headerText}</VerticalCenterText>
     <NavMenu/>
   </HeaderDiv>
 }
