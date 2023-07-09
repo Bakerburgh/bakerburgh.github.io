@@ -1,4 +1,4 @@
-import { AspectRatio, Button } from '@mui/joy';
+import { AspectRatio, Button, styled } from '@mui/joy';
 import React, { ReactNode, useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../../App/store';
 import { FlexColumn, FlexRow } from '../../common/components/Layout';
@@ -24,6 +24,14 @@ function InputTileContainer(props: { children?: ReactNode }) {
     {props.children}
   </AspectRatio>
 }
+
+const InputRootColumn = styled('div')(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '5px',
+  marginLeft: '3px',
+  marginRight: '3px'
+}))
 
 function InputTile(props: InputTileProperties) {
   let groupTransform = `translate(2, 2)`;
@@ -51,7 +59,7 @@ function Input() {
   } as InputTileProperties))
 
 
-  return <FlexColumn>
+  return <InputRootColumn>
     <FlexRow>
       {inputTileProps.slice(0, 5).map((props, key) => <InputTile key={key} {...props} />)}
     </FlexRow>
@@ -74,7 +82,7 @@ function Input() {
           </Button>
         </div>
       </InputTileContainer>    </FlexRow>
-  </FlexColumn>
+  </InputRootColumn>
 }
 
 export default Input;
