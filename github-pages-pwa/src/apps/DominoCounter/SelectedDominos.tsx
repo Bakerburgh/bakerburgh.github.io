@@ -1,5 +1,5 @@
 import { styled } from '@mui/joy';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useAppSelector } from '../../App/store';
 import { SelectedDomino } from './dominoSlice';
 import Defs from './SvgParts/Defs';
@@ -7,7 +7,8 @@ import DominoBackgroundFull from './SvgParts/DominoBackgroundFull';
 import DotPattern from './SvgParts/DotPattern';
 
 const Container = styled('div')(() => ({
-  flexGrow: 1
+  flexGrow: 1,
+  overflow: 'auto'
 }));
 
 function TopDots(props: { value?: number, colors: string[] }) {
@@ -47,11 +48,20 @@ function Domino(props: { selected: SelectedDomino, colors: string[] }) {
 
 
 function SelectedDominos() {
+  const bottomRef = useRef<HTMLDivElement>(null);
   const state = useAppSelector(state => state.dominoCounter);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [state.total, state.selected.length, bottomRef])
+
+
   return <Container>
     {state.selected.map((selected, index) =>
       <Domino selected={selected} key={index} colors={state.colors} />
     )}
+      <div style={{ float:"left", clear: "both" }}
+             ref={bottomRef}></div>
   </Container>
 }
 

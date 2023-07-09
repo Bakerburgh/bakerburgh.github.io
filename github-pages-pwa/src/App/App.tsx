@@ -11,13 +11,20 @@ const VerticalLayout = styled('div')(({ theme }) => ({
   height: '100vh'
 }))
 
+const Body = styled('div')(() => ({
+  flexGrow: 1,
+  overflow: 'hidden'
+}))
+
 function SelectedApp() {
   const apps = useAppSelector(store => store.apps);
   const selectedApp = apps.selectedApp;
 
   return <VerticalLayout>
     <Header headerText={selectedApp.headerText} />
-    {selectedApp.render()}
+    <Body>
+      {selectedApp.render()}
+    </Body>
   </VerticalLayout>
 }
 
