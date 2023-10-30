@@ -1,3 +1,15 @@
+# Where I Left Off
+
+I was trying to get things working the way they were before, but using Vite, since CRA is deprecated.
+
+I also wanted to use routing, to make it easier to share a specific application. I think [this approach](https://github.com/rafgraph/spa-github-pages) will let routing work with GitHub pages.
+
+However, they layout isn't quite the same. And when I open the app switcher menu, if I click out of the menu, it doesn't automatically close anymore. Idk if I'm missing a dependency or something...
+
+
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
